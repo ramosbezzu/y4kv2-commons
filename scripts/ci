@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Local and CI gate: full Maven build plus a strict check of Surefire reports.
+# Fails when any module reports zero tests, a failure, an error or a skip.
+# Extra arguments are forwarded to Maven (default goal: clean verify).
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+if [[ $# -eq 0 ]]; then
+  set -- clean verify
+fi
+
+./mvnw -B -ntp "$@"
+
+python3 - <<'PY'
+import glob
+import os
+import sys
+import xml.etree.ElementTree as ET
+
+modules = sorted(
+    os.path.dirname(p) for p in glob.glob("*/pom.xml")
+)
+if not modules:
+    sys.exit("ci: no Maven modules found")
+
+problems = []
+grand = 0
+for module in modules:
+    reports = glob.glob(os.path.join(module, "target", "surefire-reports", "TEST-*.xml"))
+    tests = failures = errors = skipped = 0
+    for report in reports:
+        root = ET.parse(report).getroot()
+        suites = [root] if root.tag == "testsuite" else root.findall("testsuite")
+        for suite in suites:
+            tests += int(suite.get("tests", 0))
+            failures += int(suite.get("failures", 0))
+            errors += int(suite.get("errors", 0))
+            skipped += int(suite.get("skipped", 0))
+    grand += tests
+    print(f"ci: {module}: tests={tests} failures={failures} errors={errors} skipped={skipped}")
+    if tests == 0:
+        problems.append(f"{module}: zero tests reported")
+    if failures or errors:
+        problems.append(f"{module}: {failures} failures, {errors} errors")
+    if skipped:
+        problems.append(f"{module}: {skipped} skipped tests (skips never count as approval)")
+
+print(f"ci: total tests={grand}")
+if problems:
+    for problem in problems:
+        print(f"ci: FAIL {problem}", file=sys.stderr)
+    sys.exit(1)
+print("ci: OK")
+PY

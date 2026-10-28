@@ -1,0 +1,9 @@
+mode: survival
+spawn:
+  enabled: true
+  world: world
+  spacing: 50
+  radius: 250
+  clearance: 32
+  max-attempts: 80
+  attempts-per-tick: 1

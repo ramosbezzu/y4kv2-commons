@@ -1,0 +1,14 @@
+name: Y4KProgression
+version: 0.1.0
+main: net.y8k.progression.paper.ProgressionPlugin
+api-version: '26.2'
+depend: [LuckPerms]
+softdepend: [Towny, GriefPrevention, WorldGuard, BentoBox]
+commands:
+  ranks:
+    description: Show your earned progression rank and VIP identity
+    aliases: [rank, cargos]
+    permission: y4k.progression.view
+permissions:
+  y4k.progression.view:
+    default: true

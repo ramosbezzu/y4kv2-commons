@@ -22,7 +22,26 @@ Pacotes Maven no GitHub Packages e a imagem `y4kv2-paper-base`.
 
 ## Vem do monorepo y8k
 
-`pom.xml` (pai), `tests/paper`, `plugins/progression`, `infra/ranks.json`, `scripts/y8k_lib/ranks.py`, `infra/templates/{paper-global,lpcf,progression}.yml`, `assets/branding`.
+### Conteúdo atual (fase 1)
+
+Migrado do monorepo `y8k` nesta fase, só código Java e arquivos de build/CI:
+
+| Aqui | Origem no `y8k` | Observação |
+| --- | --- | --- |
+| `pom.xml` (`net.y4k:y4kv2-parent:2.0.0-alpha.1`) | `pom.xml` raiz | Mesmas propriedades (Java 25, JUnit, AssertJ, MockBukkit, Paper API de teste), repositório PaperMC, `pluginManagement` e Surefire com `failIfNoTests`. Também agrega os módulos deste repositório e publica no GitHub Packages. |
+| `paper-test-environment/` | `tests/paper` | Harness MockBukkit, 2 testes. |
+| `y4k-progression/` | `plugins/progression` | Plugin de cargos e primeiro spawn, 23 testes. `artifactId` continua `y8k-progression` e os pacotes continuam `net.y8k.*` nesta fase. |
+| `mvnw`, `mvnw.cmd`, `.mvn/` | Maven Wrapper do monorepo | Maven 3.9.11. |
+| `scripts/ci`, `.github/workflows/ci.yml` | Novo | `clean verify` e recusa módulo sem testes, com falha, erro ou skip. Em tag `v*` a CI publica com `./mvnw deploy`. |
+
+A versão dos artefatos acompanha `config.ini` da raiz `y4kv2`. Os repositórios de papel herdam o pai com `<relativePath/>` vazio e o resolvem pelo GitHub Packages (`https://maven.pkg.github.com/ramosbezzu/y4kv2-commons`, id `github`). Localmente, `./scripts/ci clean install` instala o pai e os módulos em `~/.m2`.
+
+### Adiado para a fase F1
+
+- `y4k-core`: ainda não existe código compartilhado entre papéis; a biblioteca nasce quando a primeira peça comum for extraída, com testes.
+- Imagem `ghcr.io/ramosbezzu/y4kv2-paper-base` e `versions.lock.json`.
+- `infra/ranks.json`, `scripts/y8k_lib/ranks.py`, `infra/templates/{paper-global,lpcf,progression}.yml` e `assets/branding`: continuam na raiz `y4kv2`, porque a CLI instala o runtime atual de lá e os docs da raiz são a fonte de verdade.
+- Renomear `y8k-progression` e os pacotes `net.y8k.*` para `y4k`.
 
 ## Regras
 

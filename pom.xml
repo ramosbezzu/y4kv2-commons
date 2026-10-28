@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!--
+    Shared parent for every Y4Kv2 Java repository and aggregator of this repository's modules.
+    Version matches y4kv2/config.ini. Role repositories reference it with an empty relativePath.
+  -->
+  <groupId>net.y4k</groupId>
+  <artifactId>y4kv2-parent</artifactId>
+  <version>2.0.0-alpha.1</version>
+  <packaging>pom</packaging>
+  <name>Y4Kv2 Parent</name>
+  <url>https://github.com/ramosbezzu/y4kv2-commons</url>
+  <modules>
+    <module>paper-test-environment</module>
+    <module>y4k-progression</module>
+  </modules>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>25</maven.compiler.release>
+    <junit.version>5.14.4</junit.version>
+    <assertj.version>3.27.7</assertj.version>
+    <mockbukkit.version>4.116.1</mockbukkit.version>
+    <!-- Exact API version published in this MockBukkit JAR manifest. -->
+    <paper.test-api.version>26.2.build.111-stable</paper.test-api.version>
+  </properties>
+  <scm>
+    <connection>scm:git:https://github.com/ramosbezzu/y4kv2-commons.git</connection>
+    <url>https://github.com/ramosbezzu/y4kv2-commons</url>
+  </scm>
+  <repositories>
+    <repository>
+      <id>papermc</id>
+      <url>https://repo.papermc.io/repository/maven-public/</url>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+  </repositories>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages (y4kv2-commons)</name>
+      <url>https://maven.pkg.github.com/ramosbezzu/y4kv2-commons</url>
+    </repository>
+  </distributionManagement>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.14.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.5.4</version>
+          <configuration>
+            <failIfNoTests>true</failIfNoTests>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
