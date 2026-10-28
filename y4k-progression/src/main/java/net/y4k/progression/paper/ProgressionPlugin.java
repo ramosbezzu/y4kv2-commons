@@ -1,9 +1,9 @@
-package net.y8k.progression.paper;
+package net.y4k.progression.paper;
 import java.util.stream.Collectors;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.plugin.java.JavaPlugin;
-import net.y8k.progression.application.SpawnLedger;
-import net.y8k.progression.domain.*;
+import net.y4k.progression.application.SpawnLedger;
+import net.y4k.progression.domain.*;
 public class ProgressionPlugin extends JavaPlugin {
  @Override public void onEnable(){
   saveDefaultConfig();String mode=getConfig().getString("mode","survival");RankTrack.in(mode);

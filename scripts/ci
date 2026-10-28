@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Local and CI gate: full Maven build plus a strict check of Surefire reports.
+# Local and CI gate: JDK 25 preflight, full Maven build plus a strict check of Surefire reports.
 # Fails when any module reports zero tests, a failure, an error or a skip.
 # Extra arguments are forwarded to Maven (default goal: clean verify).
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+
+# Preflight: the build requires JDK 25 (see scripts/check-java), then the preflight's own tests.
+./scripts/check-java 25
+python3 -m unittest discover -s scripts -p 'test_*.py'
 
 if [[ $# -eq 0 ]]; then
   set -- clean verify

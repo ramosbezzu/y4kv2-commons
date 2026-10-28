@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Preflight for the build: the JDK in use must be the required major version (default 25).
+# Honours JAVA_HOME when set (the Maven Wrapper does the same), otherwise uses the java on PATH.
+# Fails fast with a clear message instead of letting the compiler fail later.
+# Usage: scripts/check-java [required_major]
+set -euo pipefail
+
+required_java_major="${1:-25}"
+
+if [[ -n "${JAVA_HOME:-}" ]]; then
+  java_bin="$JAVA_HOME/bin/java"
+else
+  java_bin="$(command -v java || true)"
+fi
+
+if [[ -z "$java_bin" || ! -x "$java_bin" ]]; then
+  echo "ci: ERRO: nenhum executavel java encontrado (JAVA_HOME='${JAVA_HOME:-}')." >&2
+  echo "ci: exporte JAVA_HOME apontando para um JDK ${required_java_major}, por exemplo:" >&2
+  echo "ci:   export JAVA_HOME=/caminho/para/jdk-${required_java_major}; export PATH=\"\$JAVA_HOME/bin:\$PATH\"" >&2
+  exit 1
+fi
+
+java_version_line="$("$java_bin" -version 2>&1 | head -n 1 || true)"
+java_version="$(sed -n 's/.*version "\([^"]*\)".*/\1/p' <<<"$java_version_line")"
+java_major="${java_version%%.*}"
+if [[ "$java_major" == "1" ]]; then
+  # Legacy scheme such as 1.8.0_292
+  java_major="$(cut -d. -f2 <<<"$java_version")"
+fi
+java_major="${java_major%%[^0-9]*}"
+
+if [[ -z "$java_major" || "$java_major" != "$required_java_major" ]]; then
+  echo "ci: ERRO: JDK ${required_java_major} obrigatorio, mas '$java_bin' e a versao ${java_version:-desconhecida} (${java_version_line:-sem saida})." >&2
+  echo "ci: exporte JAVA_HOME apontando para um JDK ${required_java_major} antes de rodar o CI, por exemplo:" >&2
+  echo "ci:   export JAVA_HOME=/caminho/para/jdk-${required_java_major}; export PATH=\"\$JAVA_HOME/bin:\$PATH\"" >&2
+  exit 1
+fi
+
+echo "ci: java ${java_version} em $java_bin"

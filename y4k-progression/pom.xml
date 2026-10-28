@@ -9,7 +9,7 @@
     <version>2.0.0-alpha.1</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>y8k-progression</artifactId>
+  <artifactId>y4k-progression</artifactId>
   <dependencies>
     <dependency><groupId>net.luckperms</groupId><artifactId>api</artifactId><version>5.4</version><scope>provided</scope></dependency>
     <dependency>

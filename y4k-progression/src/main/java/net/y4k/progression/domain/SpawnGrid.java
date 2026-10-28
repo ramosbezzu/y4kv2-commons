@@ -1,4 +1,4 @@
-package net.y8k.progression.domain;
+package net.y4k.progression.domain;
 
 import java.util.*;
 

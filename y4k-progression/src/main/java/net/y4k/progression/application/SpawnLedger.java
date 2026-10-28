@@ -1,9 +1,9 @@
-package net.y8k.progression.application;
+package net.y4k.progression.application;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.PosixFilePermissions;
 import java.util.*;
-import net.y8k.progression.domain.SpawnGrid.Point;
+import net.y4k.progression.domain.SpawnGrid.Point;
 /** Private append-only history. Used cells and touched chunks stay excluded after restart. */
 public final class SpawnLedger {
  private final Path path;

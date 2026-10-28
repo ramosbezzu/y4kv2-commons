@@ -1,4 +1,4 @@
-package net.y8k.progression;
+package net.y4k.progression;
 import java.lang.reflect.Proxy;
 import java.nio.file.Path;
 import java.util.*;
@@ -7,9 +7,9 @@ import org.bukkit.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockbukkit.mockbukkit.*;
-import net.y8k.progression.application.SpawnLedger;
-import net.y8k.progression.domain.SpawnGrid.Point;
-import net.y8k.progression.paper.*;
+import net.y4k.progression.application.SpawnLedger;
+import net.y4k.progression.domain.SpawnGrid.Point;
+import net.y4k.progression.paper.*;
 import static org.assertj.core.api.Assertions.*;
 class PaperTerrainTest {
  @TempDir Path directory;ServerMock server;World backing,world;SpawnLedger ledger;boolean generated=true,inside=true;int loads;

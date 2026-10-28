@@ -1,7 +1,7 @@
-package net.y8k.progression.paper;
+package net.y4k.progression.paper;
 import java.util.*;
 import java.util.function.Function;
-import net.y8k.progression.domain.RankTrack;
+import net.y4k.progression.domain.RankTrack;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package net.y8k.progression.paper;
+package net.y4k.progression.paper;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.*;
@@ -13,8 +13,8 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.kyori.adventure.text.Component;
-import net.y8k.progression.application.*;
-import net.y8k.progression.domain.SpawnGrid;
+import net.y4k.progression.application.*;
+import net.y4k.progression.domain.SpawnGrid;
 /** Serial first-entry allocation. No random teleport on reconnect or death. */
 public final class FirstSpawn implements Listener {
  private record Request(Player player, Iterator<SpawnGrid.Point> points, long deadline, int attempts) {}

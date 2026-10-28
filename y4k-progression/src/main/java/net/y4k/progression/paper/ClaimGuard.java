@@ -1,4 +1,4 @@
-package net.y8k.progression.paper;
+package net.y4k.progression.paper;
 import org.bukkit.Location;
 import org.bukkit.plugin.PluginManager;
 /** Queries Towny without generating blocks. Unknown installed protectors fail closed. */

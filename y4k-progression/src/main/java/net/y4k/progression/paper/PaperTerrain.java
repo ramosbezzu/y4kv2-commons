@@ -1,10 +1,10 @@
-package net.y8k.progression.paper;
+package net.y4k.progression.paper;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import org.bukkit.*;
-import net.y8k.progression.application.SpawnLedger;
-import net.y8k.progression.domain.SpawnGrid.Point;
-public final class PaperTerrain implements net.y8k.progression.application.Terrain {
+import net.y4k.progression.application.SpawnLedger;
+import net.y4k.progression.domain.SpawnGrid.Point;
+public final class PaperTerrain implements net.y4k.progression.application.Terrain {
  private static final Set<Material> GROUND=Set.of(Material.GRASS_BLOCK,Material.DIRT,Material.PODZOL,Material.COARSE_DIRT,Material.ROOTED_DIRT,Material.SAND,Material.RED_SAND,Material.GRAVEL,Material.MOSS_BLOCK,Material.MYCELIUM);
  private final World world;private final SpawnLedger ledger;private final ClaimGuard claims;private final int clearance;
  public PaperTerrain(World world,SpawnLedger ledger,ClaimGuard claims,int clearance){this.world=world;this.ledger=ledger;this.claims=claims;this.clearance=clearance;}

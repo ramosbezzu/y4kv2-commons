@@ -1,7 +1,7 @@
-package net.y8k.progression;
+package net.y4k.progression;
 import java.lang.reflect.Proxy;
 import net.luckperms.api.LuckPerms;
-import net.y8k.progression.paper.ProgressionPlugin;
+import net.y4k.progression.paper.ProgressionPlugin;
 import org.bukkit.plugin.ServicePriority;
 import org.junit.jupiter.api.*;
 import org.mockbukkit.mockbukkit.*;

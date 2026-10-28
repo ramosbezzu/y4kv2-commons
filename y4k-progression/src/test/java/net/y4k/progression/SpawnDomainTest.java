@@ -1,10 +1,10 @@
-package net.y8k.progression;
+package net.y4k.progression;
 import java.nio.file.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import net.y8k.progression.domain.*;
-import net.y8k.progression.application.*;
+import net.y4k.progression.domain.*;
+import net.y4k.progression.application.*;
 import static org.assertj.core.api.Assertions.*;
 class SpawnDomainTest {
  @TempDir Path directory;

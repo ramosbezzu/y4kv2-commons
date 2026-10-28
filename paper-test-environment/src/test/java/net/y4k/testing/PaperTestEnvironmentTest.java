@@ -1,4 +1,4 @@
-package net.y8k.testing;
+package net.y4k.testing;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

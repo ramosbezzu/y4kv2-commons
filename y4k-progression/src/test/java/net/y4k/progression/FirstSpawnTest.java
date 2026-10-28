@@ -1,4 +1,4 @@
-package net.y8k.progression;
+package net.y4k.progression;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -11,9 +11,9 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockbukkit.mockbukkit.*;
 import org.mockbukkit.mockbukkit.entity.PlayerMock;
-import net.y8k.progression.application.*;
-import net.y8k.progression.domain.*;
-import net.y8k.progression.paper.*;
+import net.y4k.progression.application.*;
+import net.y4k.progression.domain.*;
+import net.y4k.progression.paper.*;
 import static org.assertj.core.api.Assertions.*;
 class FirstSpawnTest {
  @TempDir Path directory; ServerMock server; JavaPlugin plugin; World world; PlayerMock player; SpawnLedger ledger;
