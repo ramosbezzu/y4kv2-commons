@@ -17,6 +17,7 @@
     <module>paper-test-environment</module>
     <module>y4k-core</module>
     <module>y4k-progression</module>
+    <module>y4k-queue</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
