@@ -22,7 +22,9 @@ class FirstSpawnTest {
  Terrain terrain(boolean safe){return new Terrain(){public CompletableFuture<Void> loadExisting(SpawnGrid.Point p){return CompletableFuture.completedFuture(null);}public Optional<Integer> safeY(SpawnGrid.Point p){return safe?Optional.of(70):Optional.empty();}};}
  FirstSpawn listener(boolean safe,int attempts){return new FirstSpawn(plugin,world,terrain(safe),ledger,new SpawnGrid(50,250),attempts,(p,to)->CompletableFuture.completedFuture(p.teleport(to)));}
  @Test void firstAllocationPersistsAndReconnectDoesNotMovePlayer() throws Exception {
-  var listener=listener(true,80);listener.begin(player,true);server.getScheduler().performTicks(5);
+  var listener=listener(true,80);listener.begin(player,true);
+  assertThat(player.nextMessage()).contains("[","!","]").doesNotContain(" / ");
+  server.getScheduler().performTicks(5);
   assertThat(listener.waiting(player)).isFalse();assertThat(ledger.used()).hasSize(1);assertThat(player.getLocation().getY()).isEqualTo(70);
   var original=player.getLocation();listener.begin(player,true);server.getScheduler().performTicks(5);assertThat(player.getLocation()).isEqualTo(original);
   assertThat(new SpawnLedger(directory.resolve("history"),world.getUID()).used()).hasSize(1);
@@ -67,7 +69,9 @@ class FirstSpawnTest {
  @Test void rankCommandUsesEarnedMembershipAndHandlesConsole(){
   var command=new RankCommands("survival",p->Set.of("omega","sigma","surv_explorador"));
   assertThat(command.onCommand(player,null,"ranks",new String[0])).isTrue();
-  assertThat(player.nextMessage()).contains("Explorador");
+  assertThat(player.nextMessage()).contains("Rank","Explorador").doesNotContain("•");
+  assertThat(player.nextMessage()).contains("Sobrevivente");
   assertThat(command.onCommand(server.getConsoleSender(),null,"ranks",new String[0])).isTrue();
+  assertThat(server.getConsoleSender().nextMessage()).contains("Must be ran as a player");
  }
 }

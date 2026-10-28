@@ -12,9 +12,9 @@ import org.bukkit.event.block.*;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import net.kyori.adventure.text.Component;
 import net.y4k.progression.application.*;
 import net.y4k.progression.domain.SpawnGrid;
+import net.y4k.progression.domain.ProgressionText;
 /** Serial first-entry allocation. No random teleport on reconnect or death. */
 public final class FirstSpawn implements Listener {
  private record Request(Player player, Iterator<SpawnGrid.Point> points, long deadline, int attempts) {}
@@ -39,7 +39,7 @@ public final class FirstSpawn implements Listener {
   if(broken){fail(p);return;}
   waiting.add(p.getUniqueId());var origin=world.getSpawnLocation();
   queue.add(new Request(p,grid.candidates(origin.getBlockX(),origin.getBlockZ(),p.getUniqueId()).iterator(),System.nanoTime()+TimeUnit.SECONDS.toNanos(40),0));
-  p.sendMessage(Component.text("Preparando um ponto seguro / Finding a safe start..."));
+  p.sendMessage(RankCommands.LEGACY.deserialize(ProgressionText.searching(p.locale())));
  }
  public boolean waiting(Player p){return waiting.contains(p.getUniqueId());}
  private void main(Runnable action){if(plugin.isEnabled())plugin.getServer().getScheduler().runTask(plugin,action);}
@@ -69,7 +69,7 @@ public final class FirstSpawn implements Listener {
    }));
   }));
  }
- private void fail(Player p){waiting.remove(p.getUniqueId());p.kick(Component.text("Sem ponto seguro disponível na área inicial. Tente novamente ou avise a staff. / No safe starting point available; contact staff."));}
+ private void fail(Player p){waiting.remove(p.getUniqueId());p.kick(RankCommands.LEGACY.deserialize(ProgressionText.noSafeSpot(p.locale())));}
  @EventHandler public void quit(PlayerQuitEvent event){waiting.remove(event.getPlayer().getUniqueId());}
  @EventHandler public void move(PlayerMoveEvent event){if(waiting(event.getPlayer()))event.setTo(event.getFrom());}
  @EventHandler public void interact(PlayerInteractEvent event){if(waiting(event.getPlayer()))event.setCancelled(true);}
