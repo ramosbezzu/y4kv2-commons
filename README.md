@@ -8,7 +8,7 @@ Tudo que mais de um servidor usa e que muda junto com a versão do Paper.
 - **`y4k-core`**: marca Y4K, cores, mensagens e idiomas PT/EN/ES, cargos gregos (Theta/Mu/Pi/Sigma, Tau/Delta/Omega) e utilitários sem regra de modo.
 - **`y4k-progression`**: plugin de cargos persistentes com LuckPerms/MariaDB, contextos por servidor e primeiro spawn limitado.
 - **`paper-test-environment`**: harness MockBukkit compartilhado pelos testes de adaptadores.
-- **Imagem `ghcr.io/gbezzuoli/y4kv2-paper-base`**: itzg/minecraft-server fixada + Paper fixado + LuckPerms + ViaVersion + `y4k-core` + `paper-global.yml` e config LuckPerms. Todas as imagens Paper do Y4Kv2 fazem `FROM` dela.
+- **Imagem `ghcr.io/ramosbezzu/y4kv2-paper-base`**: itzg/minecraft-server fixada + Paper fixado + LuckPerms + ViaVersion + `y4k-core` + `paper-global.yml` e config LuckPerms. Todas as imagens Paper do Y4Kv2 fazem `FROM` dela.
 
 ## Publica
 
@@ -26,4 +26,4 @@ Pacotes Maven no GitHub Packages e a imagem `y4kv2-paper-base`.
 
 ## Regras
 
-Sistema, contratos de imagem e fluxo de promoção: [projeto raiz y4kv2](https://github.com/gbezzuoli/y4kv2) e seu `AGENTS.md`.
+Sistema, contratos de imagem e fluxo de promoção: [projeto raiz y4kv2](https://github.com/ramosbezzu/y4kv2) e seu `AGENTS.md`.

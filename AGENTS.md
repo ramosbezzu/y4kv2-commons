@@ -1,6 +1,6 @@
 # AGENTS.md: y4kv2-commons
 
-Siga integralmente o `AGENTS.md` do projeto raiz [`y4kv2`](https://github.com/gbezzuoli/y4kv2/blob/main/AGENTS.md): fronteiras dos repositórios, contrato de imagem, versionamento, testes e evidência.
+Siga integralmente o `AGENTS.md` do projeto raiz [`y4kv2`](https://github.com/ramosbezzu/y4kv2/blob/main/AGENTS.md): fronteiras dos repositórios, contrato de imagem, versionamento, testes e evidência.
 
 ## Regras locais
 
