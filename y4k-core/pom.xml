@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.y4k</groupId>
+    <artifactId>y4kv2-parent</artifactId>
+    <version>2.0.0-alpha.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>y4k-core</artifactId>
+  <packaging>jar</packaging>
+  <name>Y4K Core</name>
+  <description>Shared Y4K brand, Greek ranks and PT/EN/ES message loader. No game-mode rules live here.</description>
+  <dependencies>
+    <dependency>
+      <groupId>io.papermc.paper</groupId><artifactId>paper-api</artifactId>
+      <version>${paper.test-api.version}</version><scope>provided</scope>
+    </dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId><version>${assertj.version}</version><scope>test</scope></dependency>
+  </dependencies>
+</project>

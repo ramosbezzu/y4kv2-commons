@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "source_ref": "999a8210c7d0cf1711906980ff04b5368c002b59",
+  "legacy_benefits_ref": "23711e8108700aa61e7ba61a7b9e704103f31006",
+  "roles": [
+    {
+      "name": "alpha",
+      "symbol": "α",
+      "color": "3",
+      "weight": 1,
+      "kind": "base",
+      "price": null,
+      "legacy_benefits": [],
+      "permissions": [
+        "alpha"
+      ]
+    },
+    {
+      "name": "theta",
+      "symbol": "Θ",
+      "color": "7",
+      "weight": 2,
+      "kind": "vip",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow"
+      ],
+      "permissions": [
+        "theta",
+        "y4k.lobby.elytra"
+      ]
+    },
+    {
+      "name": "mu",
+      "symbol": "μ",
+      "color": "e",
+      "weight": 3,
+      "kind": "vip",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow"
+      ],
+      "permissions": [
+        "mu",
+        "y4k.lobby.elytra"
+      ]
+    },
+    {
+      "name": "pi",
+      "symbol": "π",
+      "color": "b",
+      "weight": 4,
+      "kind": "vip",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow",
+        "flight",
+        "tntbow"
+      ],
+      "permissions": [
+        "pi",
+        "y4k.lobby.elytra"
+      ]
+    },
+    {
+      "name": "sigma",
+      "symbol": "σ",
+      "color": "6",
+      "weight": 5,
+      "kind": "vip",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow",
+        "flight",
+        "tntbow",
+        "corruptedstaff"
+      ],
+      "permissions": [
+        "sigma",
+        "y4k.lobby.elytra"
+      ]
+    },
+    {
+      "name": "phi",
+      "symbol": "Φ",
+      "color": "d",
+      "weight": 6,
+      "kind": "unclassified",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow",
+        "flight",
+        "tntbow",
+        "corruptedstaff"
+      ],
+      "permissions": [
+        "phi"
+      ]
+    },
+    {
+      "name": "tau",
+      "symbol": "τ",
+      "color": "a",
+      "weight": 7,
+      "kind": "staff",
+      "price": null,
+      "legacy_benefits": [],
+      "permissions": [
+        "tau"
+      ]
+    },
+    {
+      "name": "delta",
+      "symbol": "δ",
+      "color": "9",
+      "weight": 8,
+      "kind": "staff",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow",
+        "flight",
+        "tntbow",
+        "corruptedstaff"
+      ],
+      "permissions": [
+        "delta",
+        "y4k.lobby.elytra"
+      ]
+    },
+    {
+      "name": "omega",
+      "symbol": "Ω",
+      "color": "c",
+      "weight": 9,
+      "kind": "staff",
+      "price": null,
+      "legacy_benefits": [
+        "dress",
+        "enderbow",
+        "fireworks",
+        "fireball",
+        "ice",
+        "eggbow",
+        "flight",
+        "tntbow",
+        "corruptedstaff"
+      ],
+      "permissions": [
+        "omega",
+        "y4k.lobby.elytra"
+      ]
+    }
+  ]
+}
